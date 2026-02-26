@@ -29,7 +29,7 @@ public class JwtServiceImpl implements JwtService {
     @Override
     public String generateAccessToken(UserDetails user) {
         Instant now = Instant.now();
-        Instant expired = now.plusSeconds(accessTokenMinute);
+        Instant expired = now.plusSeconds(accessTokenMinute*3600);
 
         List<String> roles = user.getAuthorities()
                 .stream()
